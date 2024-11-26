@@ -34,7 +34,7 @@ class Hamiltonian:
         wa = self.wa
         w = self.w
         f = self.f
-        sigma_z = -tensor(qeye(N), sigmaz())
+        sigma_z = - tensor(qeye(N), sigmaz())
         a = tensor(destroy(N), qeye(2))
         a_dag = a.dag()
         sm = tensor(qeye(N),destroy(2))
@@ -48,15 +48,11 @@ class Hamiltonian:
 
         if rwa == True:
             if driven == True:
-                print('drive')
-                self.H_JC = (Omega/2*((a.dag()*sm) + (sm.dag()*a)) + H0 + (f*sigma_x)*coeff)/wa
+                self.H_JC = (Omega/2*((a.dag()*sm) + (sm.dag()*a)) + H0 + (f*sigma_x)*coeff)
             else:
-                print('no drive')
-                self.H_JC = (Omega/2*((a.dag()*sm) + (sm.dag()*a)) + H0)/wa
+                self.H_JC = (Omega/2*((a.dag()*sm) + (sm.dag()*a)) + H0)
         else:
             if driven == True:
-                print('drive')
-                self.H_JC = (Omega/2*(a.dag()+a) * (sm+sm.dag()) + H0 + (f*sigma_x)*coeff)/wa
+                self.H_JC = (Omega/2*(a.dag()+a) * (sm+sm.dag()) + H0 + (f*sigma_x)*coeff)
             else:
-                print('no drive')
-                self.H_JC = (Omega/2*(a.dag()+a) * (sm+sm.dag()) + H0)/wa
+                self.H_JC = (Omega/2*(a.dag()+a) * (sm+sm.dag()) + H0)
